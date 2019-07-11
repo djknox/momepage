@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+body {
+    background-color: #BBC2E2;
+}
+
+.headerLogo {
+    width: 25%;
+    max-width: 85%;
+    margin: 2rem;
+}
+
+.day-navigation {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr;
+    justify-items: center;
+}

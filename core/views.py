@@ -2,7 +2,7 @@ from django.shortcuts import render
 from core.models import Cohort, Day
 import datetime
 
-def index(request):
+def today(request):
     """
     View function for home page of site.
     The homepage currently displays Cohort 5's current day information.
