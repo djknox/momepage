@@ -1,14 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div>
-        Day {{ today.number }}
-        <br>
-        {{ today.date }}
-    </div>
-    <div>
-        Today's agenda:
-        <br>
-        {{ today.description }}
+    <div class="index">
+        <div class="today-header">
+            <h2 class="today-header-number">
+                Day {{ today.number }}
+            </h2>
+            <h2 class="today-header-date">
+                {{ today.date }}
+            </h2>
+        </div>
+        <div class="today-agenda">
+            <div class="today-description">
+                {{ today.description }}
+            </div>
+            <div class="agenda-item-container">
+                <h3>Schedule:</h3>
+                {% for agenda_item in today.agendaitem_set.all %}
+                    <div class="agenda-item">
+                        {{ agenda_item.description }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}

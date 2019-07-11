@@ -28,3 +28,16 @@ class Day(models.Model):
 
     class Meta:
         ordering = ['-number']
+
+
+class AgendaItem(models.Model):
+    """Model representing an item on the agenda for a Day."""
+    description = models.TextField(help_text="Enter the description of the agenda item here")
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    # an AgendaItem belongs to one Day, and a Day will have many AgendaItems
+    day = models.ForeignKey(Day, on_delete=models.CASCADE)
+
+    def __str__(self):
+        """String for representing the Day object."""
+        return self.description

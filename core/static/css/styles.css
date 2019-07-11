@@ -19,7 +19,7 @@ body {
 .headerLogo {
     width: 25%;
     max-width: 85%;
-    margin: 2rem;
+    margin: 2rem 0 2rem 0;
 }
 
 .day-navigation {
@@ -27,4 +27,25 @@ body {
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr;
     justify-items: center;
+
+    margin-bottom: 2rem;
+}
+
+.index {
+    text-align: center;
+}
+
+.today-header {
+    font-size: 2rem;
+}
+
+.today-header {
+    margin-bottom: 2rem;
+}
+
+.today-description {
+    margin-bottom: 2rem;
+}
+.agenda-item-container {
+    margin-t
 }
