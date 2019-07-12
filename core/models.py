@@ -14,7 +14,9 @@ class Cohort(models.Model):
 
 class Day(models.Model):
     """Model representing a day of class for a Momentum cohort."""
-    number = models.IntegerField(help_text= "Enter the number of the day here.")
+    number = models.IntegerField(help_text= "Enter the overall number of the day here.")
+    week_number = models.IntegerField(help_text= "Enter the number of the week here.")
+    week_day_number = models.IntegerField(help_text= "Enter the number of the day of the week here.")
     date = models.DateField(unique=True, help_text="Enter the date of the day here.")
     description = models.TextField(null=True, blank=True, help_text="Enter the description of the day here.")
     created_date = models.DateTimeField(auto_now_add=True)

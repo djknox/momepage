@@ -6,6 +6,9 @@
             <h2 class="today-header-number">
                 Day {{ today.number }}
             </h2>
+            <h2 class="today-week-and-day-numbers">
+                Week {{ today.week_number }} - Day {{ today.week_day_number }}
+            </h2>
             <h2 class="today-header-date">
                 {{ today.date }}
             </h2>
@@ -15,7 +18,7 @@
                 {{ today.description }}
             </div>
             <div class="agenda-item-container">
-                <h3>Schedule:</h3>
+                <h3>Agenda:</h3>
                 {% for agenda_item in today.agendaitem_set.all %}
                     <div class="agenda-item">
                         {{ agenda_item.description }}
