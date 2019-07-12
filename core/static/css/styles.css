@@ -14,6 +14,7 @@ h1, h2 {
 
 body {
     background-color: #BBC2E2;
+    font-family: 'Poppins', sans-serif;
 }
 
 .headerLogo {
@@ -31,15 +32,16 @@ body {
     margin-bottom: 2rem;
 }
 
+.day-navigation a {
+    text-decoration: none;
+}
+
 .index {
     text-align: center;
 }
 
 .today-header {
     font-size: 2rem;
-}
-
-.today-header {
     margin-bottom: 2rem;
 }
 
@@ -52,4 +54,15 @@ body {
 
 .guest-lecture-container {
     margin-bottom: 2rem;
+}
+
+
+.today-header-number {
+    font-size: 3rem;
+}
+.today-week-and-day-numbers {
+    font-size: 1.5rem;
+}
+.today-header-date {
+    font-size: 1.5rem;
 }
