@@ -4,22 +4,22 @@
     <div class="index">
         <div class="today-header">
             <h2 class="today-header-number">
-                Day {{ today.number }}
+                Day {{ day.number }}
             </h2>
             <h2 class="today-week-and-day-numbers">
-                Week {{ today.week_number }} - Day {{ today.week_day_number }}
+                Week {{ day.week_number }} - Day {{ day.week_day_number }}
             </h2>
             <h2 class="today-header-date">
-                {{ today.date }}
+                {{ day.date }}
             </h2>
         </div>
         <div class="today-agenda">
             <div class="today-description">
-                {{ today.description }}
+                {{ day.description }}
             </div>
             <div class="agenda-item-container">
                 <h3>Agenda:</h3>
-                {% for agenda_item in today.agendaitem_set.all %}
+                {% for agenda_item in day.agendaitem_set.all %}
                     <div class="agenda-item">
                         {{ agenda_item.description }}
                     </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="guest-lecture-container">
                 <h3>Guest Lectures:</h3>
-                {% for guest_lecture in today.guestlecture_set.all %}
+                {% for guest_lecture in day.guestlecture_set.all %}
                     <div class="guest-lecture">
                         {{ guest_lecture.start_time }} - {{ guest_lecture.end_time }}:
                         <br>
@@ -37,7 +37,7 @@
             </div>
             <div class="field-trip-container">
                 <h3>Field Trips:</h3>
-                {% for field_trip in today.fieldtrip_set.all %}
+                {% for field_trip in day.fieldtrip_set.all %}
                     <div class="field-trip">
                         {{ field_trip.start_time }} - {{ field_trip.end_time }}:
                         <br>

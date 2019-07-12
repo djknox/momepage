@@ -9,11 +9,15 @@
     <title>Momepage</title>
 </head>
 <body>
-    <h1><img class="headerLogo" src="{% static 'img/header-logo.png' %}"" alt="Momepage"></h1>
+    <h1>
+        <a href="{% url 'index' %}">
+            <img class="headerLogo" src="{% static 'img/header-logo.png' %}" alt="Momepage">
+        </a>
+    </h1>
     <nav class="day-navigation">
-        <a href="">yesterday</a>
+        <a href="{% url 'yesterday' %}">yesterday</a>
         <a href="{% url 'today' %}">today</a>
-        <a href="">tomorrow</a>
+        <a href="{% url 'tomorrow' %}">tomorrow</a>
     </nav>
     {% block content %}
     {% endblock %}
