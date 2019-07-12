@@ -26,7 +26,19 @@
                 <h3>Guest Lectures:</h3>
                 {% for guest_lecture in today.guestlecture_set.all %}
                     <div class="guest-lecture">
+                        {{ guest_lecture.start_time }} - {{ guest_lecture.end_time }}:
+                        <br>
                         {{ guest_lecture }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="field-trip-container">
+                <h3>Field Trips:</h3>
+                {% for field_trip in today.fieldtrip_set.all %}
+                    <div class="field-trip">
+                        {{ field_trip.start_time }} - {{ field_trip.end_time }}:
+                        <br>
+                        {{ field_trip }}
                     </div>
                 {% endfor %}
             </div>

@@ -39,14 +39,14 @@ class AgendaItem(models.Model):
     day = models.ForeignKey(Day, on_delete=models.CASCADE)
 
     def __str__(self):
-        """String for representing the Day object."""
+        """String for representing the AgendaItem object."""
         return self.description
 
 
 class GuestLecture(models.Model):
     """Model representing a guest lecture for a Day."""
-    start_time = models.TimeField(help_text="Enter the time when the guest lecture here will end.")
-    end_time = models.TimeField(help_text="Enter the time when the guest lecture here will start.")
+    start_time = models.TimeField(help_text="Enter the time when the guest lecture will start.")
+    end_time = models.TimeField(help_text="Enter the time when the guest lecture will end.")
     speaker = models.CharField(max_length=300, help_text= "Enter the name of the guest speaker here.")
     description = models.TextField(help_text="Enter the description of guest lecture here.")
     created_date = models.DateTimeField(auto_now_add=True)
@@ -55,5 +55,21 @@ class GuestLecture(models.Model):
     day = models.ForeignKey(Day, on_delete=models.CASCADE)
 
     def __str__(self):
-        """String for representing the Day object."""
+        """String for representing the GuestLecture object."""
         return f"{self.speaker} - {self.description}"
+
+
+class FieldTrip(models.Model):
+    """Model representing a field trip for a Day."""
+    start_time = models.TimeField(help_text="Enter the time when the field trip will start.")
+    end_time = models.TimeField(help_text="Enter the time when the field trip will end.")
+    company = models.CharField(max_length=300, help_text= "Enter the name of the company here.")
+    description = models.TextField(help_text="Enter the description of the field trip here.")
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    # a FieldTrip belongs to one Day, and a Day will have many FieldTrips
+    day = models.ForeignKey(Day, on_delete=models.CASCADE)
+
+    def __str__(self):
+        """String for representing the GuestLecture object."""
+        return self.company
