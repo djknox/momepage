@@ -47,5 +47,9 @@ body {
     margin-bottom: 2rem;
 }
 .agenda-item-container {
-    margin-t
+    margin-bottom: 2rem;
+}
+
+.guest-lecture-container {
+    margin-bottom: 2rem;
 }

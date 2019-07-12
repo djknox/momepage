@@ -16,7 +16,7 @@ class Day(models.Model):
     """Model representing a day of class for a Momentum cohort."""
     number = models.IntegerField(help_text= "Enter the number of the day here.")
     date = models.DateField(unique=True, help_text="Enter the date of the day here.")
-    description = models.TextField(null=True, blank=True, help_text="Enter the description of the day here")
+    description = models.TextField(null=True, blank=True, help_text="Enter the description of the day here.")
     created_date = models.DateTimeField(auto_now_add=True)
 
     # a Day belongs to one Cohort, and a Cohort will have many Days
@@ -32,7 +32,7 @@ class Day(models.Model):
 
 class AgendaItem(models.Model):
     """Model representing an item on the agenda for a Day."""
-    description = models.TextField(help_text="Enter the description of the agenda item here")
+    description = models.TextField(help_text="Enter the description of the agenda item here.")
     created_date = models.DateTimeField(auto_now_add=True)
 
     # an AgendaItem belongs to one Day, and a Day will have many AgendaItems
@@ -41,3 +41,19 @@ class AgendaItem(models.Model):
     def __str__(self):
         """String for representing the Day object."""
         return self.description
+
+
+class GuestLecture(models.Model):
+    """Model representing a guest lecture for a Day."""
+    start_time = models.TimeField(help_text="Enter the time when the guest lecture here will end.")
+    end_time = models.TimeField(help_text="Enter the time when the guest lecture here will start.")
+    speaker = models.CharField(max_length=300, help_text= "Enter the name of the guest speaker here.")
+    description = models.TextField(help_text="Enter the description of guest lecture here.")
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    # an AgendaItem belongs to one Day, and a Day will have many AgendaItems
+    day = models.ForeignKey(Day, on_delete=models.CASCADE)
+
+    def __str__(self):
+        """String for representing the Day object."""
+        return f"{self.speaker} - {self.description}"

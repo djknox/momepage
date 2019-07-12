@@ -22,6 +22,14 @@
                     </div>
                 {% endfor %}
             </div>
+            <div class="guest-lecture-container">
+                <h3>Guest Lectures:</h3>
+                {% for guest_lecture in today.guestlecture_set.all %}
+                    <div class="guest-lecture">
+                        {{ guest_lecture }}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
