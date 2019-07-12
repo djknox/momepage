@@ -7,21 +7,37 @@ def today(request):
     View function for home page of site.
     The homepage currently displays Cohort 5's current day information.
     """
+    yesterday = True
+    tomorrow = True
+
     day = Day.objects.filter(date=datetime.date.today()).first()
-    return render(request, 'index.html', {'day': day})
+
+    if datetime.date.today().weekday() == 0:
+        yesterday = False
+
+    if datetime.date.today().weekday() == 4:
+        tomorrow = False
+
+    return render(request, 'index.html', {
+        'day': day,
+        'yesterday' : yesterday,
+        'tomorrow' : tomorrow,
+    })
 
 
-def yesterday(request):
+def previous_day(request):
     """
-    View function for 'yesterday' page of site, displaying the previous day's info.
+    View function for 'previous day' (usually yesterday) page of site, displaying the previous day's info.
     """
+    yesterday = True
     day = Day.objects.filter(date=datetime.date.today() - datetime.timedelta(days = 1)).first()
     return render(request, 'index.html', {'day': day})
 
 
-def tomorrow(request):
+def next_day(request):
     """
-    View function for 'tomorrow' page of site, displaying the next day's info.
+    View function for 'next day' page of site (usually tomorrow), displaying the next day's info.
     """
+    tomorrow = True
     day = Day.objects.filter(date=datetime.date.today() + datetime.timedelta(days = 1)).first()
     return render(request, 'index.html', {'day': day})

@@ -16,9 +16,18 @@
         </a>
     </h1>
     <nav class="day-navigation">
-        <a href="{% url 'yesterday' %}">yesterday</a>
+        <a href="{% url 'previous-day' %}">
+            {% if yesterday %}
+                yesterday
+            {% else %}
+                Friday
+            {% endif %}</a>
         <a href="{% url 'today' %}">today</a>
-        <a href="{% url 'tomorrow' %}">tomorrow</a>
+        <a href="{% url 'next-day' %}">{% if tomorrow %}
+                tomorrow
+            {% else %}
+                Monday
+            {% endif %}</a>
     </nav>
     {% block content %}
     {% endblock %}
