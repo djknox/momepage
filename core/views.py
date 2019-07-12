@@ -9,7 +9,7 @@ def today(request):
     """
     previous_day_name = 'yesterday'
     next_day_name = 'tomorrow'
-    day_name = 'today'
+    day_name = '>today<'
 
     day = Day.objects.filter(date=datetime.date.today()).first()
 
@@ -48,13 +48,16 @@ def previous_day(request):
     """
     View function for 'previous day' (usually yesterday) page of site, displaying the previous day's info.
     """
-    previous_day_name = ''
+    previous_day_name = '>yesterday<'
+    next_day_name = 'tomorrow'
+    day_name = 'today'
+    
     if is_Monday():
-        day_name = 'Friday'
+        previous_day_name = '>Friday<'
+
+    if is_Friday():
         next_day_name = 'Monday'
-    else:
-        day_name = 'yesterday'
-        next_day_name = 'today'
+
     day = Day.objects.filter(date=datetime.date.today() - datetime.timedelta(days = 1)).first()
     return render(request, 'index.html', {
         'dayName': day_name,
@@ -67,13 +70,16 @@ def next_day(request):
     """
     View function for 'next day' page of site (usually tomorrow), displaying the next day's info.
     """
-    next_day_name = ''
-    if is_Friday():
-        day_name = 'Monday'
+    previous_day_name = 'yesterday'
+    next_day_name = '>tomorrow<'
+    day_name = 'today'
+    
+    if is_Monday():
         previous_day_name = 'Friday'
-    else:
-        day_name = 'tomorrow'
-        previous_day_name = 'today'
+
+    if is_Friday():
+        next_day_name = '>Monday<'
+
     day = Day.objects.filter(date=datetime.date.today() - datetime.timedelta(days = 1)).first()
     return render(request, 'index.html', {
         'dayName': day_name,
