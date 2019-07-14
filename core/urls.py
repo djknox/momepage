@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.today, name='index'),
     path('today', views.today, name='today'),
-    path('yesterday/', views.yesterday, name='yesterday'),
-    path('tomorrow/', views.tomorrow, name='tomorrow'),
+    path('previous-day/', views.previous_day, name='previous-day'),
+    path('next-day/', views.next_day, name='next-day'),
 ]

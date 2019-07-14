@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block title %}<title>Momepage</title>{% endblock %}
 </head>
+
 <body>
     <h1>
         <a href="{% url 'index' %}">
@@ -16,11 +18,12 @@
         </a>
     </h1>
     <nav class="day-navigation">
-        <a href="{% url 'yesterday' %}">yesterday</a>
-        <a href="{% url 'today' %}">today</a>
-        <a href="{% url 'tomorrow' %}">tomorrow</a>
+        <a href="{% url 'previous-day' %}">{{ previousDayName }}</a>
+        <a href="{% url 'today' %}">{{ dayName }}</a>
+        <a href="{% url 'next-day' %}">{{ nextDayName }}</a>
     </nav>
     {% block content %}
     {% endblock %}
 </body>
+
 </html>
