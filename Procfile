@@ -1,1 +1,1 @@
-web: gunicorn freeshelf.wsgi
+web: gunicorn momepage.wsgi
