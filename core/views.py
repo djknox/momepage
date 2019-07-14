@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from core.models import Cohort, Day
+from core.models import Cohort, Day, Meme
 import datetime
+
 
 def today(request):
     """
@@ -19,12 +20,14 @@ def today(request):
     if is_Friday():
         next_day_name = 'Monday'
 
-    return render(request, 'index.html', {
-        'day': day,
-        'dayName': day_name,
-        'previousDayName' : previous_day_name,
-        'nextDayName' : next_day_name,
-    })
+    return render(
+        request, 'index.html', {
+            'day': day,
+            'dayName': day_name,
+            'previousDayName': previous_day_name,
+            'nextDayName': next_day_name,
+        })
+
 
 def is_Monday():
     """
@@ -32,8 +35,9 @@ def is_Monday():
     """
     if datetime.date.today().weekday() == 0:
         return True
-    else :
+    else:
         return False
+
 
 def is_Friday():
     """
@@ -41,8 +45,9 @@ def is_Friday():
     """
     if datetime.date.today().weekday() == 4:
         return True
-    else :
+    else:
         return False
+
 
 def previous_day(request):
     """
@@ -51,19 +56,21 @@ def previous_day(request):
     previous_day_name = '>yesterday<'
     next_day_name = 'tomorrow'
     day_name = 'today'
-    
+
     if is_Monday():
         previous_day_name = '>Friday<'
 
     if is_Friday():
         next_day_name = 'Monday'
 
-    day = Day.objects.filter(date=datetime.date.today() - datetime.timedelta(days = 1)).first()
-    return render(request, 'index.html', {
-        'dayName': day_name,
-        'previousDayName': previous_day_name,
-        'nextDayName': next_day_name
-    })
+    day = Day.objects.filter(date=datetime.date.today() -
+                             datetime.timedelta(days=1)).first()
+    return render(
+        request, 'index.html', {
+            'dayName': day_name,
+            'previousDayName': previous_day_name,
+            'nextDayName': next_day_name
+        })
 
 
 def next_day(request):
@@ -73,16 +80,25 @@ def next_day(request):
     previous_day_name = 'yesterday'
     next_day_name = '>tomorrow<'
     day_name = 'today'
-    
+
     if is_Monday():
         previous_day_name = 'Friday'
 
     if is_Friday():
         next_day_name = '>Monday<'
 
-    day = Day.objects.filter(date=datetime.date.today() - datetime.timedelta(days = 1)).first()
-    return render(request, 'index.html', {
-        'dayName': day_name,
-        'previousDayName': previous_day_name,
-        'nextDayName': next_day_name
+    day = Day.objects.filter(date=datetime.date.today() -
+                             datetime.timedelta(days=1)).first()
+    return render(
+        request, 'index.html', {
+            'dayName': day_name,
+            'previousDayName': previous_day_name,
+            'nextDayName': next_day_name
+        })
+
+
+def memepage(request):
+    meme_list = Meme.objects.all().order_by('-date_added')
+    return render(request, 'memepage.html', {
+        'meme_list': meme_list,
     })

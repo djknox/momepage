@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Memepage</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="{% url 'index' %}">
+                <img class="headerLogo" src="{% static 'img/meme-header-logo.png' %}" alt="Memepage">
+            </a>
+        </h1>
+    </header>
+    <main>
+        <ul>
+            {% for meme in meme_list %}
+            <li>
+                <img src="{{meme.meme_url}}">
+                <h3>{{meme.meme_title}}</h3>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+
+</html>

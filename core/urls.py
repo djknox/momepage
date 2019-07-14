@@ -6,4 +6,5 @@ urlpatterns = [
     path('today', views.today, name='today'),
     path('previous-day/', views.previous_day, name='previous-day'),
     path('next-day/', views.next_day, name='next-day'),
+    path('memepage/', views.memepage, name='memepage'),
 ]
