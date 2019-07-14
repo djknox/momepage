@@ -19,11 +19,12 @@
             </a>
         </h1>
     </header>
-    <main>
-        <ul>
+    <main class="meme-main">
+        <ul class="meme-ul">
             {% for meme in meme_list %}
-            <li>
-                <img src="{{meme.meme_url}}">
+            <li class="meme-li">
+                <img class="meme-img" src="{{meme.meme_url}}">
+                <br>
                 <h3>{{meme.meme_title}}</h3>
             </li>
             {% endfor %}
