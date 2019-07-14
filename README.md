@@ -51,7 +51,7 @@ git checkout -b my-new-feature
 In the new branch, write the code for whatever you want to add. When the feature is finished, and all changes have been committed, push the branch up to this repo:
 
 ```bash
-git push origin master
+git push --set-upstream origin my-new-feature
 ```
 
 After pushing your branch, come back to this repo on GitHub and create a new pull request.
