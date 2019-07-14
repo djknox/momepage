@@ -4,13 +4,15 @@ Momepage is a homepage for Momentum students that provides information on class 
 
 ## Getting Started
 
-To set up a development environment for contributing to Momepage, first clone this repository:
+To set up a development environment for contributing to Momepage, first [fork this repository on GitHub](https://help.github.com/en/articles/fork-a-repo). This will create a copy of this repository and put it on your own GitHub profile.
+
+You will then need to clone your forked repository to put it in your local development environment:
 
 ```bash
-git clone https://github.com/djknox/momepage.git
+git clone https://github.com/<your-user-name>/momepage.git
 ```
 
-Next, you will need to ```cd ``` into the momepage directory and install the dependencies listed in the Pipfile with ```pipenv``` (this will also create a virtual environment for you):
+Next, you will need to ```cd ``` into the momepage directory that was just created and install the dependencies listed in the Pipfile with ```pipenv``` (this will also create a virtual environment for you):
 
 ```bash
 pipenv install
@@ -48,13 +50,21 @@ After setting up the development environment, create a new branch for your contr
 git checkout -b my-new-feature
 ```
 
-In the new branch, write the code for whatever you want to add. When the feature is finished, and all changes have been committed, push the branch up to this repo:
+In the new branch, write the code for whatever you want to add. When the feature is finished, and all changes have been committed, push the branch up to your forked repo and create a pull request:
+
+First, add this repo (the original momepage repo that you forked) as an upstream repository to your forked repo. This will create a connection between the original repo and your forked repo:
 
 ```bash
-git push --set-upstream origin my-new-feature
+git remote add upstream https://github.com/djknox/momepage.git
 ```
 
-After pushing your branch, come back to this repo on GitHub and create a new pull request.
+Now push your new branch:
+
+```bash
+git push origin my-new-feature
+```
+
+After pushing your branch, go to your repo on GitHub and [create a new pull request](https://help.github.com/en/articles/creating-a-pull-request).
 
 When the pull request is accepted, your new code will be merged into the master branch of Momepage and you will have officially contributed to an open-source project!
 
