@@ -66,3 +66,22 @@ body {
 .today-header-date {
     font-size: 1.5rem;
 }
+
+.meme-ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.meme-li {
+    max-width: 40%;
+    margin: 1rem;
+    text-align: center;
+}
+
+.meme-img {
+    max-width: 80%;
+}
+
