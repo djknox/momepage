@@ -34,11 +34,11 @@ Finally, run the server to access Momepage in the browser:
 python3 manage.py runserver
 ```
 
-After following these steps, you will be able to access Momepage in the browser and have your development environment ready to go!
+After following these steps, you will be able to access Momepage in the browser and your development environment will be all set.
 
 
 ## Contributing
-To make a contribution to Momepage, just make a [pull request](https://help.github.com/en/articles/about-pull-requests)!
+To contribute to Momepage, just make a [pull request](https://help.github.com/en/articles/about-pull-requests)!
 
 Here's the basic steps to contributing:
 
@@ -57,3 +57,16 @@ git push --set-upstream origin my-new-feature
 After pushing your branch, come back to this repo on GitHub and create a new pull request.
 
 When the pull request is accepted, your new code will be merged into the master branch of Momepage and you will have officially contributed to an open-source project!
+
+If the feature is completely finished, and the pull request has been accepted, you can get back on your local master branch and pull down the new changes:
+
+```bash
+git checkout master
+git pull origin master
+```
+
+You may also want to delete your completed feature branch:
+
+```bash
+git branch -d my-new-feature
+```
