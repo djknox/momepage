@@ -58,7 +58,7 @@ First, add this repo (the original momepage repo that you forked) as an upstream
 git remote add upstream https://github.com/djknox/momepage.git
 ```
 
-Now push your new branch to your repo:
+Now push your new branch:
 
 ```bash
 git push origin my-new-feature
