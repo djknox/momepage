@@ -4,13 +4,15 @@ Momepage is a homepage for Momentum students that provides information on class 
 
 ## Getting Started
 
-To set up a development environment for contributing to Momepage, first clone this repository:
+To set up a development environment for contributing to Momepage, first [fork this repository on GitHub](https://help.github.com/en/articles/fork-a-repo). This will create a copy of this repository and put it on your own GitHub profile.
+
+You will then need to clone your forked repository to put it in your local development environment:
 
 ```bash
-git clone https://github.com/djknox/momepage.git
+git clone https://github.com/<your-user-name>/momepage.git
 ```
 
-Next, you will need to ```cd ``` into the momepage directory and install the dependencies listed in the Pipfile with ```pipenv``` (this will also create a virtual environment for you):
+Next, you will need to ```cd ``` into the momepage directory that was just created and install the dependencies listed in the Pipfile with ```pipenv``` (this will also create a virtual environment for you):
 
 ```bash
 pipenv install
